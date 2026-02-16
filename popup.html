@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini 常用问题助手</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <!-- 顶部标题 -->
+  <header class="app-header">
+    <div class="app-title">
+      <span class="app-icon">⚡</span>
+      <span>Gemini 常用问题助手</span>
+    </div>
+    <div class="app-subtitle">管理你的常用问题和分类</div>
+  </header>
+
+  <!-- Tab 切换 -->
+  <nav class="nav-tabs">
+    <button class="nav-tab active" data-view="questions">📋 问题管理</button>
+    <button class="nav-tab" data-view="categories">🏷️ 分类管理</button>
+  </nav>
+
+  <!-- ======= 问题管理视图 ======= -->
+  <section id="view-questions" class="view active">
+    <!-- 分类筛选 -->
+    <div class="filter-bar">
+      <select id="filter-category" class="select-input">
+        <option value="all">全部分类</option>
+      </select>
+      <button class="btn btn-primary btn-sm" id="btn-add-question">＋ 添加问题</button>
+    </div>
+
+    <!-- 问题列表 -->
+    <div class="list-container" id="questions-list"></div>
+
+    <!-- 添加/编辑问题表单 -->
+    <div class="form-overlay" id="question-form-overlay">
+      <div class="form-card">
+        <div class="form-header">
+          <span id="question-form-title">添加问题</span>
+          <button class="btn-icon" id="question-form-close">✕</button>
+        </div>
+        <div class="form-body">
+          <div class="form-group">
+            <label class="form-label">分类</label>
+            <select id="question-category" class="select-input"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">问题内容</label>
+            <textarea id="question-text" class="textarea-input" rows="3" placeholder="输入你的常用问题..."></textarea>
+          </div>
+        </div>
+        <div class="form-footer">
+          <button class="btn btn-ghost" id="question-form-cancel">取消</button>
+          <button class="btn btn-primary" id="question-form-save">保存</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 分类管理视图 ======= -->
+  <section id="view-categories" class="view">
+    <div class="filter-bar">
+      <span class="filter-label">自定义分类和颜色</span>
+      <button class="btn btn-primary btn-sm" id="btn-add-category">＋ 添加分类</button>
+    </div>
+
+    <!-- 分类列表 -->
+    <div class="list-container" id="categories-list"></div>
+
+    <!-- 添加/编辑分类表单 -->
+    <div class="form-overlay" id="category-form-overlay">
+      <div class="form-card">
+        <div class="form-header">
+          <span id="category-form-title">添加分类</span>
+          <button class="btn-icon" id="category-form-close">✕</button>
+        </div>
+        <div class="form-body">
+          <div class="form-group">
+            <label class="form-label">分类名称</label>
+            <input type="text" id="category-name" class="text-input" placeholder="例如：翻译" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">颜色</label>
+            <div class="color-picker" id="color-picker">
+              <button class="color-swatch active" data-color="#8B5CF6" style="background:#8B5CF6"></button>
+              <button class="color-swatch" data-color="#3B82F6" style="background:#3B82F6"></button>
+              <button class="color-swatch" data-color="#10B981" style="background:#10B981"></button>
+              <button class="color-swatch" data-color="#F59E0B" style="background:#F59E0B"></button>
+              <button class="color-swatch" data-color="#EF4444" style="background:#EF4444"></button>
+              <button class="color-swatch" data-color="#EC4899" style="background:#EC4899"></button>
+              <button class="color-swatch" data-color="#06B6D4" style="background:#06B6D4"></button>
+              <button class="color-swatch" data-color="#84CC16" style="background:#84CC16"></button>
+            </div>
+          </div>
+        </div>
+        <div class="form-footer">
+          <button class="btn btn-ghost" id="category-form-cancel">取消</button>
+          <button class="btn btn-primary" id="category-form-save">保存</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 提示消息 -->
+  <div class="toast" id="toast"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
