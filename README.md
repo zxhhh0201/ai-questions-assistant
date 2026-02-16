@@ -38,7 +38,7 @@
    - 点击本页面右上角绿色 **Code** 按钮 → **Download ZIP**
    - 或使用 Git 克隆：
      ```bash
-     git clone https://github.com/你的用户名/ai-questions-assistant.git
+     git clone https://github.com/zxhhh0201/ai-questions-assistant.git
      ```
 
 2. **解压文件**（如果下载的是 ZIP）
